@@ -18,7 +18,7 @@ Now that you've done that, on your virtualenv type in ```pip install tensorflowj
 ```model.json``` to a directory of your choice.
 
 After you're done with all of this you must include the code - ```const layersModel = await tf.loadGraphModel(‘[path]/model.json’);``` 
-in your javascript file. This creates a layers model for you in tensorflow.js. If you want a graph model you include the code - 
+in your javascript file. This **converts** the json file with the model to a layers model for you in tensorflow.js. If you want to **convert** the model to a graph model you must include the code - 
 ```const graphModel = await tf.loadLayersModel(‘path/to/model.json’);``` in your javascript file.
 
 Now we're done with all of the loading of the pretrained models. But you must still be wondering what the difference is between 
