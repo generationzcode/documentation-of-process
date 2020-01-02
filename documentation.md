@@ -5,15 +5,15 @@ train the model. Here you will learn to do just that.
 
 First you have to create the model in python. I did it using the keras API of tensorflow. Once you've created the model you have to compile it
 it - using ```model.compile()``` - and train it - using ```model.fit()```. Once you've done that you must save the model using the
-code - ```model.save_weights("filename.h5")```.
+code - ```model.save_weights("[filename].h5")```.
 
 Now that you have the file with all the weights you should move it to the folder where you will be making the web page to make the process of
-converting the file to a ```.json``` format (its more web-friendly) more easily. To convert it to a ```.json``` format you must open you command
+converting the file to a ```.json``` format (its more web-friendly) more easily. To convert it to a ```.json``` format you must open the command
 line interface in your computer and type in ```cd [the directory where your file is kept]```. After you've done that type in ```python pip
 install virtualenv```(do this only if you haven't installed virtualenv on your computer before). Once virtualenv is installed, type in
 ```virtualenv --no-site-packages env``` and after that type in ```env\Scripts\activate.bat``` to activate your virtual environment.
 
-Now that you've done that, on your virtualenv type in ```pip install tensorflowjs```. Once it is installed type in
+Now that you've done that, on your virtualenv type in ```pip install tensorflowjs```. Once it is installed type in the command:
 ```tensorflowjs_converter \--input_format=keras \filename.h5 \ [directory you want your json model to go to]```. This outputs a 
 ```model.json``` to a directory of your choice.
 
@@ -27,3 +27,8 @@ in tensorflow.js and has more methods for predicting and evaluating than a graph
 layers model for prediction and evaluation of a model and is something I would not use. I would use a layers model because it has more
 methods than a graph model (even options for 
 training).
+
+|[Layers model](https://js.tensorflow.org/api/latest/#class:LayersModel)|[graph model](https://js.tensorflow.org/api/latest/#class:GraphModel)|
+|-----------------------------------------------------|------------------------------------------------|
+|This has more methods for predicting,evaluating the model and more|This has less methods than a layers model|
+|This is built on the tfjs layers API so returns a tf.Model and therefore can be trained|This returns a tf.FrozenModel: all the parameters are fixed and therefore it can't be trained|
